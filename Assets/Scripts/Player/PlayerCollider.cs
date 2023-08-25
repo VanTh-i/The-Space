@@ -9,6 +9,7 @@ public class PlayerCollider : MonoBehaviour
     private Animator animator;
 
 
+
     private void Start()
     {
         playerHP = FindObjectOfType<PlayerHP>();
@@ -22,26 +23,30 @@ public class PlayerCollider : MonoBehaviour
         {
             if (playerHP.maxHP >= 1)
             {
-                playerHP.HitByEnemy(1);
-                uiManager.health--;
+                GetIFrame();
                 collision.gameObject.SetActive(false);
-                StartCoroutine(IFrame());
             }
-            
         }
+        
+    }
+    private void GetIFrame()
+    {
+        playerHP.HitByEnemy(1);
+        uiManager.health--;
+        StartCoroutine(IFrame());
     }
     IEnumerator IFrame()
     {
-        if (!GameManager.Instance.isDead)
-        {
-            Physics2D.IgnoreLayerCollision(6, 7, true);
-            animator.SetTrigger("IFrame");
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        animator.SetTrigger("IFrame");
 
-            yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
-            Physics2D.IgnoreLayerCollision(6, 7, false);
-            animator.SetTrigger("EndIFrame");
-        }
-        
+        Physics2D.IgnoreLayerCollision(6, 7, false);
+        animator.SetTrigger("EndIFrame");
+    }
+    private void OnDisable()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7, false);
     }
 }
