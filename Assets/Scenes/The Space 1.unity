@@ -1455,63 +1455,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700129044}
   m_CullTransparentMesh: 1
---- !u!1001 &708143105
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8964845577801467083, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_Name
-      value: Boss1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8964845577801467085, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
 --- !u!1 &825433142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3008,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.07
+  m_Radius: 0.1
 --- !u!114 &1889617420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3569,7 +3512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2132556593
 Transform:
   m_ObjectHideFlags: 0
@@ -3600,20 +3543,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: Stage 1
-    numOfEnemy: 3
-    typeOfEnemy: {fileID: 8487350628008386505, guid: 9e2afc3030cff7d4fb14dece78a6db75, type: 3}
-  - waveName: Stage 2
-    numOfEnemy: 5
-    typeOfEnemy: {fileID: 8487350628008386505, guid: 9e2afc3030cff7d4fb14dece78a6db75, type: 3}
-  - waveName: Stage 3
     numOfEnemy: 7
     typeOfEnemy: {fileID: 8487350628008386505, guid: 9e2afc3030cff7d4fb14dece78a6db75, type: 3}
-  - waveName: Stage 4
-    numOfEnemy: 2
+  - waveName: Stage 2
+    numOfEnemy: 12
+    typeOfEnemy: {fileID: 8487350628008386505, guid: 9e2afc3030cff7d4fb14dece78a6db75, type: 3}
+  - waveName: Stage 3
+    numOfEnemy: 4
     typeOfEnemy: {fileID: 3230295269351739576, guid: 2fc76e3499b7b8c4880f6291f24cae51, type: 3}
   - waveName: Final Stage
     numOfEnemy: 1
-    typeOfEnemy: {fileID: 8964845577801467083, guid: e55f65701033f3c4cb7cc6c3842ee55a, type: 3}
+    typeOfEnemy: {fileID: 6305756257325340555, guid: ef4237ce906bdc942ace5e376f80654b, type: 3}
   waveName: {fileID: 682709705}
   worldName: {fileID: 700129046}
 --- !u!95 &2132556595

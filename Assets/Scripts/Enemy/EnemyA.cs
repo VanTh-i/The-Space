@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EnemyA : Enemy
 {
-    protected override void Update()
-    {
-        Destroy();
-        base.Update();
-    }
-
     protected override IEnumerator Shoot()
     {
         while (true)
@@ -27,13 +21,6 @@ public class EnemyA : Enemy
             }
 
             yield return new WaitForSeconds(2f);
-        }
-    }
-    private void Destroy()
-    {
-        if (transform.position.y < -6)
-        {
-            Destroy(gameObject);
         }
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyB : Enemy
 {
     private float distanceEnemyB = 3.5f;
-    //[SerializeField] protected internal GameObject shootPoint2 , shootPoint3;
 
     protected override void Moving()
     {
@@ -15,9 +14,9 @@ public class EnemyB : Enemy
         }
         else
         {
-            //bulletHellFeature.Fire();
             StartCoroutine(Shoot());
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
+            StartCoroutine(MoveHorizontal());
             stopMovingMethod = true;
         }
     }
@@ -28,7 +27,7 @@ public class EnemyB : Enemy
         {
             bulletHellFeature.Fire();
             //yield return new WaitForSeconds(0.7f);
-
+            //bulletHellFeature.Fire2();
             yield return new WaitForSeconds(2f);
 
         }

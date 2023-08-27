@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] Wave[] waves;
-    private Wave currentWave;
-    private int currentWaveNumber;
+    [SerializeField] protected Wave[] waves;
+    protected Wave currentWave;
+    protected int currentWaveNumber;
 
     private bool canSpawn = true;
-    private bool canAnimate = false;
+    protected bool canAnimate = false;
     private float nextSpawnTime;
 
-    private Animator animator;
-    [SerializeField] private TextMeshProUGUI waveName;
+    protected Animator animator;
+    [SerializeField] protected TextMeshProUGUI waveName;
+    [SerializeField] private TextMeshProUGUI worldName;
 
     // Start is called before the first frame update
     void Start()
@@ -28,21 +30,34 @@ public class EnemySpawn : MonoBehaviour
     {
         StageWaveToSpawn();
     }
-    private void StageWaveToSpawn()
+    protected virtual void StageWaveToSpawn()
     {
         currentWave = waves[currentWaveNumber];
         Invoke("SpawnWave", 2.5f);
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length && canAnimate)
+        if (totalEnemies.Length == 0)
         {
-            waveName.text = waves[currentWaveNumber + 1].waveName;
-            animator.SetTrigger("WaveName");
-            canAnimate = false;
+            if (currentWaveNumber + 1 != waves.Length)
+            {
+                if (canAnimate)
+                {
+                    waveName.text = waves[currentWaveNumber + 1].waveName;
+                    animator.SetTrigger("WaveName");
+                    canAnimate = false;
+                }
+            }
+            else
+            {
+                if (currentWave.numOfEnemy <= 0)
+                {
+                    GameManager.Instance.Victory();
+                }
+            }
         }
-        
     }
     private void FirstWave()
     {
+        worldName.text = "World " + SceneManager.GetActiveScene().buildIndex;
         animator.SetTrigger("Wave1");
 
     }

@@ -10,16 +10,27 @@ public class Enemy : MonoBehaviour
     protected bool stopMovingMethod;
     protected float distance;
 
+    public bool movingToX = true;
+
     [SerializeField] protected GameObject enemyBullet;
-    [SerializeField] protected internal GameObject shootPoint;
+    [SerializeField] protected GameObject shootPoint;
 
     protected BulletHellFeature bulletHellFeature;
+    protected BulletHellFeature2 bulletHellFeature2;
+
+    private Camera MainCamera;
+    protected Vector2 Bound;
 
     // Start is called before the first frame update
     private void Start()
     {
+        MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        Bound = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
+
         rb = GetComponent<Rigidbody2D>();
         bulletHellFeature = FindObjectOfType<BulletHellFeature>();
+        bulletHellFeature2 = FindObjectOfType<BulletHellFeature2>();
+
         distance = Random.Range(2f, 4.5f);
         stopMovingMethod = false;
     }
@@ -41,7 +52,8 @@ public class Enemy : MonoBehaviour
         else
         {
             StartCoroutine(Shoot());
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
+            StartCoroutine(MoveHorizontal());
             stopMovingMethod = true;
         }
     }
@@ -54,5 +66,28 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(3f);
         }
     }
+    protected virtual IEnumerator MoveHorizontal()
+    {
+        while (true)
+        {
+            if (movingToX)
+            {
+                rb.velocity = Vector2.left * (enemySpeed / 2);
+                if (transform.position.x <= -Bound.x)
+                {
+                    movingToX = false;
+                }
+            }
 
+            else if (movingToX == false)
+            {
+                rb.velocity = Vector2.right * (enemySpeed / 2);
+                if (transform.position.x >= Bound.x)
+                {
+                    movingToX = true;
+                }
+            }
+            yield return null;
+        }
+    }
 }

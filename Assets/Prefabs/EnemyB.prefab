@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ced63e1fb155364c992f1328eaf9629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingToX: 1
   enemyBullet: {fileID: 2631285736687064938, guid: f7f96fbe7b3d3174e9b117d6cca8d5c6, type: 3}
   shootPoint: {fileID: 7666824865988014088}
 --- !u!114 &-5816473577004394673
@@ -222,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e286dce35eda11b4bb1291d07639ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAmount: 10
-  startAngle: 120
-  endAngle: 240
+  bulletAmount: 20
+  startAngle: 0
+  endAngle: 360
 --- !u!1 &7666824865988014088
 GameObject:
   m_ObjectHideFlags: 0
