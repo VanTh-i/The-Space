@@ -4332,7 +4332,7 @@ MonoBehaviour:
   waves:
   - waveName: Stage 1
     numOfEnemy: 1
-    typeOfEnemy: {fileID: 6305756257325340555, guid: ef4237ce906bdc942ace5e376f80654b, type: 3}
+    typeOfEnemy: {fileID: 5623548217430516925, guid: bbe4791d37e71084fb62331815ead473, type: 3}
   waveName: {fileID: 682709705}
   worldName: {fileID: 700129046}
 --- !u!1 &2135926927

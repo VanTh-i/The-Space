@@ -10,9 +10,9 @@ public class EnemySpawn : MonoBehaviour
     protected Wave currentWave;
     protected int currentWaveNumber;
 
-    private bool canSpawn = true;
+    protected bool canSpawn = true;
     protected bool canAnimate = false;
-    private float nextSpawnTime;
+    protected float nextSpawnTime;
 
     protected Animator animator;
     [SerializeField] protected TextMeshProUGUI waveName;
@@ -66,7 +66,7 @@ public class EnemySpawn : MonoBehaviour
         currentWaveNumber++;
         canSpawn = true;
     }
-    private void SpawnWave()
+    protected virtual void SpawnWave()
     {
         if (canSpawn && nextSpawnTime < Time.time)
         {

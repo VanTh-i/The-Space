@@ -29,4 +29,22 @@ public class EnemySpawnFinalWorld : EnemySpawn
             }
         }
     }
+
+    protected override void SpawnWave()
+    {
+        if (canSpawn && nextSpawnTime < Time.time)
+        {
+            Vector2 spawnPosition = new Vector2(0, 7);
+            Instantiate(currentWave.typeOfEnemy, spawnPosition, Quaternion.identity);
+
+            currentWave.numOfEnemy--;
+            nextSpawnTime = Time.time + currentWave.spawnInterval;
+
+            if (currentWave.numOfEnemy == 0)
+            {
+                canSpawn = false;
+                canAnimate = true;
+            }
+        }
+    }
 }
