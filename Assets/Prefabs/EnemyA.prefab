@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183353a7a89f3f84485bbfe90ad35927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingToX: 1
   enemyBullet: {fileID: 6682036059796308765, guid: ee3a4e0cee5e1444b9cbf108f02f4920, type: 3}
-  shootPoint: {fileID: 2124410113466503758}
 --- !u!114 &1290387151138154512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
+  explosionPrefabs: {fileID: 8842526971320949802, guid: b1e00090d9cb49541acc3f6c6ad8b313, type: 3}
+  explosionTime: 0.4
 --- !u!114 &-5506064335426101999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e286dce35eda11b4bb1291d07639ac14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAmount: 3
-  startAngle: 140
+  bulletAmount: 2
+  startAngle: 150
   endAngle: 220

@@ -41,6 +41,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 if (canAnimate)
                 {
+                    GameManager.Instance.WaveClear();
                     waveName.text = waves[currentWaveNumber + 1].waveName;
                     animator.SetTrigger("WaveName");
                     canAnimate = false;
@@ -50,11 +51,16 @@ public class EnemySpawn : MonoBehaviour
             {
                 if (currentWave.numOfEnemy <= 0)
                 {
-                    GameManager.Instance.Victory();
+                    Invoke("CallVictory", 2f);
                 }
             }
         }
     }
+    private void CallVictory()
+    {
+        GameManager.Instance.Victory();
+    }
+
     private void FirstWave()
     {
         worldName.text = "World " + SceneManager.GetActiveScene().buildIndex;

@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
         {
             if (Time.time - lastFireTime > fireRate)
             {
-                //GameObject bullet = Instantiate(bulletPrefabs, transform.position, transform.rotation);
                 GameObject bullet = PlayerBulletPool.Instance.GetPooledObject();
                 if (bullet != null)
                 {
@@ -54,7 +53,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            //GameObject bullet = Instantiate(bulletPrefabs, transform.position, transform.rotation);
             GameObject bullet = PlayerBulletPool.Instance.GetPooledObject();
             if (bullet != null)
             {

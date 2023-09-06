@@ -24,11 +24,6 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void AddScore(int value)
     {
         score += value;
@@ -82,6 +77,14 @@ public class GameManager : MonoBehaviour
         foreach (GameObject bullet in bulletsHell)
         {
             Destroy(bullet);
+        }
+    }
+    public void WaveClear()
+    {
+        GameObject[] bulletsHell = GameObject.FindGameObjectsWithTag("EnemyBulletHell");
+        foreach (GameObject bullet in bulletsHell)
+        {
+            bullet.gameObject.SetActive(false);
         }
     }
 }

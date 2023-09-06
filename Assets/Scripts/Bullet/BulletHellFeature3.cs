@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletHellFeature : MonoBehaviour
+public class BulletHellFeature3 : MonoBehaviour
 {
-    [SerializeField] private int bulletAmount = 10;
-    [SerializeField] private float startAngle = 90f, endAngle = 270f;
-    //private Vector2 bulletMoveDirection;
+    private float angle = 0f;
+    private float angle2 = 360f;
+
     protected internal void Fire()
     {
-        float angleStep = (endAngle - startAngle) / bulletAmount;
-        float angle = startAngle;
-
-        for (int i = 0; i < bulletAmount + 1; i++)
+        for (int i = 0; i <= 10; i++)
         {
-            float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            float bulDirX = transform.position.x + Mathf.Sin(((angle + 36f * i) * Mathf.PI) / 180f);
+            float bulDirY = transform.position.y + Mathf.Cos(((angle + 36f * i) * Mathf.PI) / 180f);
 
             Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
@@ -25,20 +22,17 @@ public class BulletHellFeature : MonoBehaviour
             bul.transform.rotation = transform.rotation;
             bul.SetActive(true);
             bul.GetComponent<BulletHell>().SetMoveDirection(bulDir);
+        }
 
-            angle += angleStep;
-        }     
+        angle += 20f;
     }
 
     protected internal void Fire2()
     {
-        float angleStep = (endAngle - startAngle) / bulletAmount;
-        float angle = startAngle + ((endAngle - startAngle) / bulletAmount) /2;
-
-        for (int i = 0; i < bulletAmount + 1; i++)
+        for (int i = 0; i <= 10; i++)
         {
-            float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            float bulDirX = transform.position.x + Mathf.Sin(((angle2 + 36f * i) * Mathf.PI) / 180f);
+            float bulDirY = transform.position.y + Mathf.Cos(((angle2 + 36f * i) * Mathf.PI) / 180f);
 
             Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
             Vector2 bulDir = (bulMoveVector - transform.position).normalized;
@@ -48,8 +42,8 @@ public class BulletHellFeature : MonoBehaviour
             bul.transform.rotation = transform.rotation;
             bul.SetActive(true);
             bul.GetComponent<BulletHell>().SetMoveDirection(bulDir);
-
-            angle += angleStep;
         }
+
+        angle2 -= 20f;
     }
 }

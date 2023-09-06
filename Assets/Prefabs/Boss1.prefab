@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8964845577801467073}
   - component: {fileID: 8964845577801467075}
   - component: {fileID: 8964845577801467072}
-  - component: {fileID: 8964845577801467087}
+  - component: {fileID: 8223501387921652312}
   - component: {fileID: 8964845577801467086}
+  - component: {fileID: 6016775812316971775}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Enemy
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d87d44f713d114abcebff780cf4cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8964845577801467087
+--- !u!114 &8223501387921652312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,10 +174,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8964845577801467083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc9a25d54801874ca459d7ba6ff3860, type: 3}
+  m_Script: {fileID: 11500000, guid: f32485f8c72868843ba63911ac57a01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 20
+  explosionPrefabs: {fileID: 8842526971320949802, guid: b1e00090d9cb49541acc3f6c6ad8b313, type: 3}
+  explosionTime: 0.4
 --- !u!114 &8964845577801467086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +195,24 @@ MonoBehaviour:
   bulletAmount: 25
   startAngle: 0
   endAngle: 360
+--- !u!95 &6016775812316971775
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964845577801467083}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e107114df6835ad45bb0b4047a8b5322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

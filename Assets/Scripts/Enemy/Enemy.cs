@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected float enemySpeed = 2f;
@@ -13,13 +13,15 @@ public class Enemy : MonoBehaviour
     public bool movingToX = true;
 
     [SerializeField] protected GameObject enemyBullet;
-    [SerializeField] protected GameObject shootPoint;
 
     protected BulletHellFeature bulletHellFeature;
     protected BulletHellFeature2 bulletHellFeature2;
+    protected BulletHellFeature3 bulletHellFeature3;
 
     private Camera MainCamera;
     protected Vector2 Bound;
+
+    private BossHP bossHP;
 
     // Start is called before the first frame update
     private void Start()
@@ -30,6 +32,10 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bulletHellFeature = FindObjectOfType<BulletHellFeature>();
         bulletHellFeature2 = FindObjectOfType<BulletHellFeature2>();
+        bulletHellFeature3 = FindObjectOfType<BulletHellFeature3>();
+
+        bossHP = GetComponent<BossHP>();
+        
 
         distance = Random.Range(2f, 4.5f);
         stopMovingMethod = false;
@@ -38,9 +44,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+
         if (!stopMovingMethod)
         {
             Moving();
+        }
+    }
+    protected void StopBehavior()
+    {
+        if (bossHP.stopCoroutine)
+        {
+            StopAllCoroutines();
         }
     }
     protected virtual void Moving()
@@ -58,14 +72,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual IEnumerator Shoot()
-    {
-        while (true)
-        {
-            Instantiate(enemyBullet, shootPoint.transform.position, shootPoint.transform.rotation);
-            yield return new WaitForSeconds(3f);
-        }
-    }
+    protected abstract IEnumerator Shoot();
+    //{
+    //    while (true)
+    //    {
+    //        Instantiate(enemyBullet, shootPoint.transform.position, shootPoint.transform.rotation);
+    //        yield return new WaitForSeconds(3f);
+    //    }
+    //}
     protected virtual IEnumerator MoveHorizontal()
     {
         while (true)

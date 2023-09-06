@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6305756257325340558}
   - component: {fileID: 6305756257325340595}
   - component: {fileID: 6305756257325340594}
-  - component: {fileID: 6305756257325340593}
   - component: {fileID: 6305756257325340592}
+  - component: {fileID: 6261061773819119312}
+  - component: {fileID: 897856630441192649}
   m_Layer: 0
   m_Name: Boss2
   m_TagString: Enemy
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingToX: 1
   enemyBullet: {fileID: 1015204609687544473, guid: 1ec3cf71ebe37ee489b1270a2800e37b, type: 3}
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 8842526971320949802, guid: b8287920d8cc29b469505fb6b3c37fdc, type: 3}
 --- !u!114 &6305756257325340594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,19 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d87d44f713d114abcebff780cf4cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6305756257325340593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6305756257325340555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc9a25d54801874ca459d7ba6ff3860, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 300
 --- !u!114 &6305756257325340592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +177,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babf7ce93c660b3418c75dcf570bc8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6261061773819119312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305756257325340555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32485f8c72868843ba63911ac57a01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 20
+  explosionPrefabs: {fileID: 8842526971320949802, guid: b1e00090d9cb49541acc3f6c6ad8b313, type: 3}
+  explosionTime: 0.4
+--- !u!95 &897856630441192649
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305756257325340555}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e107114df6835ad45bb0b4047a8b5322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

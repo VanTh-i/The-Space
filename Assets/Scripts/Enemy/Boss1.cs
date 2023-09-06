@@ -6,6 +6,12 @@ public class Boss1 : Enemy
 {
     private float distanceBoss1 = 3.5f;
 
+    protected override void Update()
+    {
+        StopBehavior();// dung ban dan khi chet
+
+        base.Update();
+    }
     protected override void Moving()
     {
         if (transform.position.y > distanceBoss1)

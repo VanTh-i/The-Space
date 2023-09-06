@@ -8,18 +8,9 @@ public class EnemyA : Enemy
     {
         while (true)
         {
-            //Instantiate(enemyBullet, shootPoint.transform.position, shootPoint.transform.rotation);
-            //yield return new WaitForSeconds(0.3f);
-            //Instantiate(enemyBullet, shootPoint.transform.position, shootPoint.transform.rotation);
-            GameObject bullet = EnemyBulletPool.Instance.GetBullet();
-            if (bullet != null)
-            {
-                bullet.transform.position = shootPoint.transform.position;
-                bullet.transform.rotation = shootPoint.transform.rotation;
-                bullet.SetActive(true);
-
-            }
-
+            bulletHellFeature.Fire();
+            //yield return new WaitForSeconds(0.7f);
+            //bulletHellFeature.Fire2();
             yield return new WaitForSeconds(2f);
         }
     }

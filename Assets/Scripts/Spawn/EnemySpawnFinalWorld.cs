@@ -24,10 +24,14 @@ public class EnemySpawnFinalWorld : EnemySpawn
             {
                 if (currentWave.numOfEnemy <= 0)
                 {
-                    GameManager.Instance.Win();
+                    Invoke("CallVictory", 2f);
                 }
             }
         }
+    }
+    private void CallVictory()
+    {
+        GameManager.Instance.Win();
     }
 
     protected override void SpawnWave()
