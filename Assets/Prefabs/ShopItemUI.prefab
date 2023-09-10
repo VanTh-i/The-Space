@@ -247,8 +247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 0, y: 80}
+  m_AnchoredPosition: {x: -3.0000303, y: 40}
+  m_SizeDelta: {x: -6.0000606, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5528863587560651775
 CanvasRenderer:
@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 5528863587723400426}
   - component: {fileID: 5528863587723400421}
   - component: {fileID: 5528863587723400420}
+  - component: {fileID: 1227517720540679549}
   m_Layer: 5
   m_Name: ShopItemUI
   m_TagString: Untagged
@@ -411,3 +412,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1227517720540679549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528863587723400422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5ddbb24140e47488110195d43d5648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 5528863587242832152}
+  hud: {fileID: 5528863587116599066}
+  btn: {fileID: 5528863587723400420}

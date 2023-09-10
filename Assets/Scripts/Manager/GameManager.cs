@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool endGame = false;
 
     private UIManager uiManager;
-    private int score;
+    protected internal int score;
 
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = PlayerPrefs.GetInt(PrefConst.COIN_KEY);
         uiManager = FindObjectOfType<UIManager>();
     }
 
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
     {
         score += value;
         uiManager.UpdateScore(score);
+
+        PlayerPrefs.SetInt(PrefConst.COIN_KEY, score);//luu tru coin
+        PlayerPrefs.Save();
     }
     public void Victory()
     {

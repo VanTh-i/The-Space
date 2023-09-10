@@ -31,7 +31,8 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        scoreText.text = "0";
+        GameManager.Instance.score = PlayerPrefs.GetInt(PrefConst.COIN_KEY);
+        scoreText.text = (GameManager.Instance.score).ToString();
     }
     private void Update()
     {
@@ -39,7 +40,6 @@ public class UIManager : MonoBehaviour
         DeadMenu();
         VictoryMenu();
         EndGameMenu();
-
         Health();
     }
     protected internal void UpdateScore(int value)

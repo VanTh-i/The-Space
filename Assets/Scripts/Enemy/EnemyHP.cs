@@ -13,7 +13,8 @@ public class EnemyHP : MonoBehaviour
         maxHP -= value;
         if (maxHP <= 0)
         {
-            GameManager.Instance.AddScore(1);
+            int randomScore = Random.Range(10, 30);
+            GameManager.Instance.AddScore(randomScore);
             CallDestroy();
             Explosion();
         }

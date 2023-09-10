@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/The Space.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/The Space 1.unity
+    path: Assets/Scenes/The Space 2.unity
     guid: 27f9eebec0b1b584a85e2e46d30129db
   - enabled: 1
-    path: Assets/Scenes/The Space 2.unity
+    path: Assets/Scenes/The Space 3.unity
     guid: e3c6305d59b959a45913f6bf7bd35d52
   m_configObjects: {}
