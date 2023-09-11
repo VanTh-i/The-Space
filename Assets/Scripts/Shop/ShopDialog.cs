@@ -36,6 +36,47 @@ public class ShopDialog : Dialog
                 itemUIClone.transform.localPosition = Vector3.zero;
                 itemUIClone.transform.localScale = Vector3.one;
                 itemUIClone.UpdateUI(item, idx);
+
+                if (itemUIClone.btn)
+                {
+                    itemUIClone.btn.onClick.RemoveAllListeners();
+                    itemUIClone.btn.onClick.AddListener(() => ItemEvent(item, idx));
+                }
+            }
+        }
+    }
+
+    private void ItemEvent(ShopItem item, int shopItemID)
+    {
+        if (item == null)
+        {
+            return;
+        }
+
+        bool isUnlocked = Pref.GetBool(PrefConst.PLAYER_PEFIX + shopItemID);
+        if (isUnlocked)
+        {
+            if (shopItemID == Pref.CurPlayerID)
+            {
+                return;
+            }
+
+            Pref.CurPlayerID = shopItemID;
+            UpdateUI();
+        }
+        else
+        {
+            if (Pref.Coins >= item.price)
+            {
+                Pref.Coins -= item.price;
+                Pref.SetBool(PrefConst.PLAYER_PEFIX + shopItemID, true);
+                Pref.CurPlayerID = shopItemID;
+                MainMenuUIManager.Instance.UpdateCoin();
+                UpdateUI();
+            }
+            else
+            {
+                Debug.Log("ko du tien mua !!!");
             }
         }
     }
