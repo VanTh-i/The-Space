@@ -62,6 +62,7 @@ public class ShopDialog : Dialog
             }
 
             Pref.CurPlayerID = shopItemID;
+            SpawnPlayerInShop.Instance.ChoosePlayer();
             UpdateUI();
         }
         else
@@ -72,6 +73,7 @@ public class ShopDialog : Dialog
                 Pref.SetBool(PrefConst.PLAYER_PEFIX + shopItemID, true);
                 Pref.CurPlayerID = shopItemID;
                 MainMenuUIManager.Instance.UpdateCoin();
+                SpawnPlayerInShop.Instance.ChoosePlayer();
                 UpdateUI();
             }
             else

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnPlayerInShop.Instance.ActivePlayer();
         score = PlayerPrefs.GetInt(PrefConst.COIN_KEY);
         uiManager = FindObjectOfType<UIManager>();
     }

@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endGameUI;
 
     [SerializeField] private GameObject spawn;
-    [SerializeField] private GameObject player;
+    private GameObject player;
 
     [SerializeField] private TextMeshProUGUI scoreText;
 
@@ -25,10 +25,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite fullHealth;
     [SerializeField] private Sprite emptyHealth;
 
-    private void Awake()
-    {
-        //DontDestroyOnLoad(gameObject);
-    }
     private void Start()
     {
         GameManager.Instance.score = PlayerPrefs.GetInt(PrefConst.COIN_KEY);
@@ -83,9 +79,11 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance.isDead)
         {
+            player = GameObject.FindGameObjectWithTag("Player");
             deadUI.gameObject.SetActive(true);
             Destroy(spawn);
-            player.gameObject.SetActive(false);
+            Destroy(player);
+            //player.gameObject.SetActive(false);
         }
     }
     public void VictoryMenu()
