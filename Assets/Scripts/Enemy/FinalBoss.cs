@@ -20,9 +20,9 @@ public class FinalBoss : Enemy
         }
         else
         {
-            //StartCoroutine(Shoot());
-            //StartCoroutine(Shoot2());
-            StartCoroutine(Shoot3());
+            StartCoroutine(Shoot());
+            StartCoroutine(Shoot2());
+            //StartCoroutine(Shoot3());
             //rb.velocity = Vector2.zero;
             StartCoroutine(MoveHorizontal());
             stopMovingMethod = true;
@@ -59,15 +59,15 @@ public class FinalBoss : Enemy
     {
         while (true)
         {
-            //bulletHellFeature2.Fire();
-            //bulletHellFeature2.Fire2();
-            //bulletHellFeature2.Fire3();
-            //bulletHellFeature2.Fire4();
-            //bulletHellFeature2.Fire5();
-            bulletHellFeature3.Fire();
-            bulletHellFeature3.Fire2();
+            bulletHellFeature2.Fire();
+            bulletHellFeature2.Fire2();
+            bulletHellFeature2.Fire3();
+            bulletHellFeature2.Fire4();
+            bulletHellFeature2.Fire5();
+            //bulletHellFeature3.Fire();
+            //bulletHellFeature3.Fire2();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
     }
     private IEnumerator Shoot2()
@@ -75,9 +75,9 @@ public class FinalBoss : Enemy
         while (true)
         {
             bulletHellFeature.Fire();
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(1f);
             bulletHellFeature.Fire2();
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(1f);
         }
     }
     private IEnumerator Shoot3()

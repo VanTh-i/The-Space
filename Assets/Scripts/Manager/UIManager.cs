@@ -29,13 +29,15 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.score = PlayerPrefs.GetInt(PrefConst.COIN_KEY);
         scoreText.text = (GameManager.Instance.score).ToString();
+
+        GameManager.Instance.PlayerDied += DeadMenu;
+        GameManager.Instance.VictoryEvent += VictoryMenu;
+        GameManager.Instance.WinEvent += EndGameMenu;
+
     }
     private void Update()
     {
         PauseGame();
-        DeadMenu();
-        VictoryMenu();
-        EndGameMenu();
         Health();
     }
     protected internal void UpdateScore(int value)

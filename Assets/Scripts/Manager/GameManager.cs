@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     private UIManager uiManager;
     protected internal int score;
 
+    //event
+    public event System.Action PlayerDied;
+    public event System.Action VictoryEvent;
+    public event System.Action WinEvent;
+
     private void Awake()
     {
         Instance = this;
@@ -48,6 +53,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bullet);
         }
+
+        VictoryEvent?.Invoke();
     }
     public void Win()
     {
@@ -63,6 +70,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bullet);
         }
+
+        WinEvent?.Invoke();
     }
     public void PlayerDead()
     {
@@ -83,6 +92,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bullet);
         }
+
+        PlayerDied?.Invoke();
     }
     public void WaveClear()
     {

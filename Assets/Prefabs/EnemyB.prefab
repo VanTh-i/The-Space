@@ -197,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingToX: 1
   enemyBullet: {fileID: 2631285736687064938, guid: f7f96fbe7b3d3174e9b117d6cca8d5c6, type: 3}
-  shootPoint: {fileID: 7666824865988014088}
 --- !u!114 &-5816473577004394673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc9a25d54801874ca459d7ba6ff3860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 20
+  maxHP: 30
   explosionPrefabs: {fileID: 8842526971320949802, guid: b1e00090d9cb49541acc3f6c6ad8b313, type: 3}
   explosionTime: 0.4
 --- !u!114 &-4848608722784138612
